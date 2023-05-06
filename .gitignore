@@ -1,0 +1,10 @@
+.cache
+.ipynb_checkpoints
+.ipython
+.jupyter
+.local
+.__pycache__
+applications/neo4j/data/databases
+applications/neo4j/data/transactions
+applications/tools/automata/__pycache__
+applications/tools/base/__pycache__

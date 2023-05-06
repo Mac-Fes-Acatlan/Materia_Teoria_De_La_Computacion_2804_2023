@@ -1,0 +1,22 @@
+version: "3"
+services:
+
+  pyspark:
+    volumes:
+      - $PATH_JUPYTER:/home/jovyan
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8888:8888
+
+  neo4j:
+    image: neo4j:latest
+    container_name: 'devneo4j'
+    volumes:
+      - '$PATH_NEO4J/data:/data'
+      - '$PATH_NEO4J/conf/:/conf/'
+    ports:
+      - 7474:7474
+      - 7687:7687
+    restart: on-failure
