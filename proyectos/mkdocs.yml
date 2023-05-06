@@ -1,0 +1,81 @@
+site_name: Teoría de la Computación Fes Acatlan UNAM
+site_url: https://example.com/
+
+extra_javascript: 
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+
+extra_css:
+  - stylesheets/extra.css
+
+nav:
+  - Home: index.md
+  - Equipo 2 :  
+    - Planteamiento del Problema: Equipo_2/Planteamiento.md
+          
+  - Equipo 5:
+    - Verificador de llaves palindromas: Equipo_5/Planteamiento.md
+    - Sobre la biblioteca Instrucciones: Equipo_5/Instrucciones.md
+    - Sobre la bilblioteca Pila: Equipo_5/Pila.md
+    - Sobre la biblioteca AFS:  Equipo_5/AFS.md
+    - Sobre la instalacion: Equipo_5/Instalacion.md
+    - Codigo del programa: Equipo_5/Codigo.md
+    - Esquema de funcionamiento: Equipo_5/esquema.md
+    - Ejemplos de funcionamiento: Equipo_5/Ejemplo.md
+    - Acerca de: Equipo_5/Acerca_de.md
+    
+
+theme:
+  scheme: default
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - toc.follow
+    - toc.integrate  
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)" 
+      scheme: slate
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
+
+
+
+plugins:  
+  - search
+  - awesome-pages
+  - git-authors:
+     show_contribution: true
+     show_line_count: true
+     count_empty_lines: true
+     fallback_to_empty: false
+     enabled: true
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+  - attr_list
+  - md_in_html
+  - tables
+  - def_list
+  - pymdownx.arithmatex:
+      generic: true  
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
