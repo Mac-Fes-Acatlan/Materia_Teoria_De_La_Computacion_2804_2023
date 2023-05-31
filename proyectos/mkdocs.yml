@@ -13,6 +13,13 @@ nav:
   - Home: index.md
   - Equipo 2 :  
     - Planteamiento del Problema: Equipo_2/Planteamiento.md
+
+  - Equipo 3 :
+    - Identificación de tarjetas bancarias: Equipo_3/Planteamiento.md
+    - Sobre los Automatas Finitos Deterministas: Equipo_3/AutomatasDeterministas.md
+    - Sobre la clase "AFD" : Equipo_3/ConstruyeAFD.md
+    - Reconocimiento de tarjetas por "AFD": Equipo_3/Codigo.md
+    - Acerca de: Equipo_3/AcercaDe.md
           
   - Equipo 5:
     - Verificador de llaves palindromas: Equipo_5/Planteamiento.md
