@@ -1,63 +1,84 @@
 #Biblioteca AFS
 
 <div class=text-justify>
-Como se habia mencionado anteriormente esta biblioteca hace uso de la biblioteca pila, la manera en que lo hace es utilizando cada uno de los metodos que se mostraron anteriormente los cuales eran apilar,desapilar, el verificador de si una pila esta en la cima o si esta se encuentra vacia:
-</div>
-***
+Como se habia mencionado anteriormente esta biblioteca hace uso de la biblioteca AFD biblioteca encargada de la construcción de un objeto tipo AFD que recibe como parametros el estado inicial, estados finales, alfabeto, función de trancisión.
+<br>
+<br>
+A continuación se presenta un ejemplo de la construcción de un AFD con esta libreria.
+<br>
+<br>
 
 ``` python
-    class Autopi:
-        def __init__(self,palabra):
-            self.pila = pila.Pila()
-            self.resultado=[]
-            self.transiciones=[]
-            self.estado_1 = True
-            self.estado_2 = False
-            self.estado_final = False
-            self.palabra=palabra
-
-        def getEstado_1(self):
-            return self.estado_1
-        def getEstado_2(self):
-            return self.estado_2
-        def getEstado_final(self):
-            return self.estado_final
-
-        def activaEstado_1(self):
-            self.estado_1=True
-            self.estado_2=False
-            self.estado_final=False
-
-        def activaEstado_2(self):
-            self.estado_2=True
-            self.estado_1=False
-            self.estado_final=False
-
-        def activaEstado_final(self):
-            self.estado_final=True
-            self.estado_1=False
-            self.estado_2=False
+from tools.automata.afd import AFD
+    dfa = AFD(
+        estados={"q0", "q1", "q2"},     #Estados del AFD
+        input_simbolos={"0", "1"},      #Alfabeto del AFD
+        transiciones={                  #Función de trancision para el AFD
+            "q0": {"0": "q0", "1": "q1"},
+            "q1": {"0": "q0", "1": "q2"},
+            "q2": {"0": "q2", "1": "q1"},
+        },  
+        estado_inicial="q0",            #Estado inicial del AFD
+        estados_finales={"q2"},         #Estados de aceptación del AFD
+    )
 ```
-***
-<div class=text-justify>
-En la siguiente parte del codigo se explica como se emplea la pila para dar seguimiento alas transiciones de b, asi mismo tambien en ese codigo se encuentran las transiciones de  a y de c, se utilizan los metodos de quitar es decir remover el ultimo elemento de la pila y luego si esta requiere alguna apilacion lo hace, para posteriormente verificar en que estamos:
-</div>
-``` python
-    #transiciones con b
-    def b_b_bb(self):
-        self.pila.quitar()
-        self.pila.apilar('b')
-        self.pila.apilar('b')
-        self.activaEstado_1()
+<br>
 
-    def b_a_ab(self):
-        self.pila.quitar()
-        self.pila.apilar('a')
-        self.pila.apilar('b')
-        self.activaEstado_1()
-    def b_n_nb(self):
-        self.pila.quitar()
-        self.pila.apilar('#')
-        self.pila.apilar('b')
-        self.activaEstado_1()
+<div class=text-justify>
+En la siguiente parte del codigo se describe el funcionamiento de la evaluación de los estados, como identifica el termino del AFD y la precaución de simbolos equivocados en las entradas.
+</div>
+<br>
+<br>
+
+``` python
+#Encuentra que los estados sean validos para la trancisiones definidas.
+    def _validacion_comparacion_missing_estado_transiciones(self):
+
+        for estado in self.estados:
+            if estado not in self.transiciones:
+                raise excepciones.EstadoMissingError(
+                    f"El estado {estado}, no se encuentra definido en las transiciones"
+                )
+#Encuentra el siguiente estado a pasar del automata siguiendo su función de transcisión.
+    def _get_siguiente_estado_actual(self, input_str, estado_actual, input_simbolo):
+       if input_simbolo in self.transiciones[estado_actual]:
+           return self.transiciones[estado_actual][input_simbolo]
+       else:
+           raise excepciones.RechazoException(
+               f"Para la cadena {input_str} , el simbolo {input_simbolo} no es valido"
+           )
+
+#Indica si la cadena que se proceso es correcta o no es aceptada por el AFD.
+    def _rechazo_de_cadena(self, estado_actual):
+
+        if estado_actual not in self.estados_finales:
+
+            raise excepciones.RechazoException(
+                "La cadena procesada no es aceptada por el automata"
+            )
+        else:
+            logging.info(f" Cadena procesada, con estado final : {estado_actual}\n")
+#Funcion encargada de leer la cadena insertada haciendo uso de "lectura_paso_a_paso"
+    def lectura_input(self, input_str):
+
+    validacion_generada = self.lectura_paso_a_paso(input_str)
+        for config in validacion_generada:
+            pass
+        return config
+#Valida que se encuentre el estado inicial dentro de las transciciones
+    def _validacion_estado_inicial(self):
+
+        if self.estado_incial not in self.transiciones:
+            raise excepciones.EstadoInicialError(
+                "El estado inicial no se tiene determinado en la funcion de transición"
+            )
+#Valida que el estado final se encuentre entre los estados de transcicion.
+    def _validacion_estados_finales(self):
+
+        estados_invalidos = self.estados_finales - self.estados
+        if estados_invalidos:
+            raise excepciones.EstadosFinalesError(
+                "El estado final , no es elemento del conjunto de estados "
+            )
+
 ```

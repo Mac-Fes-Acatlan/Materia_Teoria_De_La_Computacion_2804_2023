@@ -1,17 +1,7 @@
-#Codigo principal
-<div class=text-justify>
-En esta parte es necesario importar la biblioteca AFD que se trato en la sección anterior para el correcto funcionamiento del Automata.
-</div>
+#Codigo creado por el Equipo 3 de la materia de Teoría de la Computación semestre 2023
 
-``` python
 from tools.automata.afd import AFD
-```
-<div class=text-justify>
-    Ahora se pide por teclado la cadena que sera procesada como tarjeta bancaría y se verifica que esta sea valida.
 
-</div>
-
-``` python
 print("\nDeterminara si la tarjeta ingresada consiste en una tarjeta MasterCard, Visa o AMEX si es expedida en México \n")
 
 tarjeta = input("Ingrese el número de la tarjeta\n")
@@ -19,12 +9,7 @@ tarjeta = input("Ingrese el número de la tarjeta\n")
 while(tarjeta.isdigit() == False or (len(tarjeta) !=16 and len(tarjeta)!=15)):   #Se encarga de verificar que la tarjeta cumpla con los digitos
     tarjeta = input("Ingrese el número de la taarjeta valido\n")
 
-```
-<div class=text-justify>
-    Se crea el AFD
-</div>
 
-``` python
 valida_tarjeta = AFD(   #Creamos el automata para verificar las cadenas
     estados={'q0','q1','q2','q3','q4','q5','q6','q7','q8','q9','q10','e1','e2','e3'},
     input_simbolos={'0','1','2','3','4','5','6','7','8','9'},
@@ -48,12 +33,6 @@ valida_tarjeta = AFD(   #Creamos el automata para verificar las cadenas
     estados_finales={'q5','q9','q10'}
     
 )
-``` 
-<div class=text-justify>
-    Se procesa la cadena y se da el resultado de que tipo es la cadena desplegando el mensaje correspondiente.
-</div>
-
-``` python
 #Determina dependiendo de donde cayo que marca es la tarjeta
 value = valida_tarjeta.lectura_input(tarjeta)
 if value == 'q9':
@@ -64,8 +43,3 @@ elif value == 'q5':
     print("La tarjeta es AMEX")
 else:
     print("tarjeta no valida")
-
-``` 
-<div class=text-justify>
-    Nota: El AFD puede ser ampliado para poder determinar mas tarjetas que las presentadas en esta sección.
-</div>
