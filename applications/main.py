@@ -14,5 +14,5 @@ if __name__ == "__main__":
         estado_inicial="q0",
         estados_finales={"q2"},
     )
-    value = dfa.lectura_input("011")
+    value = dfa.lectura_input("1")
 
