@@ -12,6 +12,15 @@ extra_css:
 
 nav:
   - Home: index.md
+  - Equipo 1:
+    -Acerca_de: Equipo_1/Acerca_de.md
+    -Planteamiento: Equipo_1/Planteamiento.md
+    -AFD: Equipo_1/AFD.md
+    -AFDGENERAL: Equipo_1/AFDGENERAL.md
+    -codigo: Equipo_1/codigo.md
+    -ejemplos: Equipo_1/ejemplosconimg
+    -esquema: Equipo_1/esquema.md
+    -instrucciones: Equipo_1/instruccionesimg,md
   - Equipo 2 :  
     - Planteamiento del Problema: Equipo_2/Planteamiento.md
     - Solución: Equipo_2/Solucion.md
