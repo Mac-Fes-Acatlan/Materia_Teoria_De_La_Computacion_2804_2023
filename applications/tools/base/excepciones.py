@@ -40,3 +40,6 @@ class SimboloinvalidooError(AutomataExcepcion):
 
 class DesplazamientoinvalidoError(AutomataExcepcion):
     pass
+
+class TransicionPilaError(AutomataExcepcion):
+    pass
