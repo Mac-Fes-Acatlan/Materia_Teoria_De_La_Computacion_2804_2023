@@ -1,0 +1,5 @@
+mkdocs>=1.1.2
+mkdocs-gitbook
+mkdocs-material
+mkdocs-awesome-pages-plugin
+mkdocs-git-authors-plugin
