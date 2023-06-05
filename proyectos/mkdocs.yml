@@ -24,6 +24,15 @@ nav:
     - Sobre la clase "AFD" : Equipo_3/ConstruyeAFD.md
     - Reconocimiento de tarjetas por "AFD": Equipo_3/Codigo.md
     - Acerca de: Equipo_3/AcercaDe.md
+
+
+  - Equipo 4 :
+    - Verificacion de email: Equipo_4/Planteamiento.md
+    - Sobre los Automatas Finitos Deterministas: Equipo_4/AutomatasDeterministas.md
+    - Codigo del programa: Equipo_4/Codigo.md
+    - Esquema de funcionamiento: Equipo_4/esquema.md
+    - Ejemplos de funcionamiento: Equipo_4/Ejemplo.md
+    - Acerca de: Equipo_4/Acerca_de.md
           
   - Equipo 5:
     - Verificador de llaves palindromas: Equipo_5/Planteamiento.md
