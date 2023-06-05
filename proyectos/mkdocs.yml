@@ -5,6 +5,7 @@ extra_javascript:
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
   - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+  - assets/equipo_2_pila.py 
 
 extra_css:
   - stylesheets/extra.css
@@ -13,6 +14,9 @@ nav:
   - Home: index.md
   - Equipo 2 :  
     - Planteamiento del Problema: Equipo_2/Planteamiento.md
+    - Solución: Equipo_2/Solucion.md
+    - Implementación: Equipo_2/Codigo.md
+    - Probando el código: Equipo_2/Playground.md
 
   - Equipo 3 :
     - Identificación de tarjetas bancarias: Equipo_3/Planteamiento.md
